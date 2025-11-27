@@ -118,4 +118,5 @@ Due to a severe lack of spare time, there are some minor hacks and missing piece
 - Implement proper error pages on the frontend
 - Implement anagram pagination on the frontend
 - Optimize SEO, add missing pieces
+- Optimize Docker setup, fix bad hot-reload etc.
 - Quality control - as I was in a bit of a rush, there may be some parts that can be designed in better, more efficient ways - I'd be happy to talk about those in person
