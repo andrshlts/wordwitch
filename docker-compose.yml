@@ -1,0 +1,71 @@
+services:
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        container_name: backend
+        ports:
+            - 8084:80
+        volumes:
+            - ./backend:/var/www/html
+            - /var/www/html/vendor
+        depends_on:
+            db:
+                condition: service_healthy
+        networks:
+            - wordwitch
+        restart: unless-stopped
+        env_file:
+            - ./.env
+        command: >
+            sh -c "
+            composer install --optimize-autoloader;
+            php artisan migrate --force;
+            php artisan serve --host=0.0.0.0 --port=80"
+
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile.dev
+        container_name: frontend
+        ports:
+            - 5173:5173
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=development
+        depends_on:
+            - backend
+        networks:
+            - wordwitch
+        restart: unless-stopped
+
+    db:
+        image: mysql:8
+        container_name: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        volumes:
+            - mysql_data:/var/lib/mysql
+            - ./docker/mysql/init:/docker-entrypoint-initdb.d
+        ports:
+            - 3306:3306
+        networks:
+            - wordwitch
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+networks:
+    wordwitch:
+        driver: bridge
+
+volumes:
+    mysql_data:
