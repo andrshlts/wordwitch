@@ -75,6 +75,7 @@ Once ready:
 - Visit [http://localhost:8084/docs/api](http://localhost:8084/docs/api) to see auto-generated apidoc.
 - Use [http://localhost:8084/api/v1/refreshWordbase](http://localhost:8084/api/v1/refreshWordbase) to update the application's wordbase.
 - Use [http://localhost:8084/api/v1/getAnagrams?word=word](http://localhost:8084/api/v1/getAnagrams?word=word) to fetch an array of anagrams for a given word.
+- Edit `./frontend/config/config.ts` to configure the application to your liking. By default the application consumes the Heroku-hosted API.
 
 ---
 

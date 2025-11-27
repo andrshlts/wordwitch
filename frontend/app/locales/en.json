@@ -1,0 +1,59 @@
+{
+
+    "app_name": "WordWitch",
+
+    "home": {
+        "meta": {
+            "title": "WordWitch",
+            "description": "Your magical anagram finder"
+        }
+    },
+
+    "refresh_wordbase": {
+        "meta": {
+            "title": "Refresh Wordbase - WordWitch",
+            "description": "Refresh the wordbase to keep your anagrams magical"
+        }
+    },
+
+    "anagramFinder": {
+        "label": "Word",
+        "placeholder": "Enter a word...",
+        "submit": "Find Anagrams",
+        "errors": {
+            "generic": "Oops! The spell to find anagrams went wrong. Try casting it again!",
+            "empty_result": "No anagrams found.",
+            "validation": {
+                "word.string": "Hmm... that doesn't look like a proper word.",
+                "word.required": "Hey! The Witch needs a word to craft anagrams.",
+                "word.min": "Tiny word! The Witch needs at least 2 characters.",
+                "word.max": "Woah, that word is huge! The Witch can't handle more than 50 characters.",
+                "word.regex": "Yikes! Your word contains forbidden characters."
+            }
+        }
+    },
+
+    "wordbaseUpdater": {
+        "submit": "Update Wordbase",
+        "success": "✨ Abracadabra! The Wordbase has been successfully updated.",
+        "errors": {
+            "generic": "Uh-oh! The Wordbase enchantment failed. Try casting it again!"
+        }
+    },
+
+    "languageSwitcher": {
+        "title": "Choose language",
+        "language": "Language"
+    },
+
+    "themeSwitcher": {
+        "title": "Choose theme",
+        "theme": "Theme",
+        "themes": {
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        }
+    }
+
+}

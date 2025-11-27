@@ -1,0 +1,59 @@
+{
+
+    "app_name": "WordWitch",
+
+    "home": {
+        "meta": {
+            "title": "WordWitch",
+            "description": "Maagiline anagrammileidja"
+        }
+    },
+
+    "refresh_wordbase": {
+        "meta": {
+            "title": "Värskenda sõnastikku - WordWitch",
+            "description": "Värskenda sõnastikku, et hoida oma anagrammid maagilisena"
+        }
+    },
+
+    "anagramFinder": {
+        "label": "Sõna",
+        "placeholder": "Sisesta sõna...",
+        "submit": "Leia anagrammid",
+        "errors": {
+            "generic": "Anagrammide otsimise loits põrus! Proovi uuesti.",
+            "empty_result": "Anagramme ei leitud.",
+            "validation": {
+                "word.string": "Hmm... see sõna ei sobi.",
+                "word.required": "Nõid vajab sõna, et anagrammid valmis manada.",
+                "word.min": "Väike sõna! Nõid vajab vähemalt 2 tähemärki.",
+                "word.max": "Hiiglaslik sõna! Nõid ei suuda üle 50 tähemärgi kokku lugeda.",
+                "word.regex": "Oh õudust! Sõna sisaldab keelatud tähemärke."
+            }
+        }
+    },
+
+    "wordbaseUpdater": {
+        "submit": "Värskenda sõnastikku",
+        "success": "✨ Abrakadabra! Sõnastik on edukalt värskendatud.",
+        "errors": {
+            "generic": "Ups! Sõnastiku loits ebaõnnestus. Proovi uuesti."
+        }
+    },
+
+    "languageSwitcher": {
+        "title": "Vali keel",
+        "language": "Keel"
+    },
+
+    "themeSwitcher": {
+        "title": "Vali teema",
+        "theme": "Teema",
+        "themes": {
+            "system": "Auto",
+            "light": "Hele",
+            "dark": "Tume"
+        }
+    }
+
+}

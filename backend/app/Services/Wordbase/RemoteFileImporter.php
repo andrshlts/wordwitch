@@ -36,7 +36,7 @@ class RemoteFileImporter extends AbstractImporter
 
         while (($line = fgets($handle)) !== false) {
             $word = preg_replace('/^[\s-]+|[\s-]+$/u', '', $line);
-            if (\strlen($word) < 2) continue;
+            if (mb_strlen($word) < 2) continue;
 
             $lowercase = Str::lower($word);
             if ($this->isRepeated($lowercase)) continue;
