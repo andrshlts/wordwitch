@@ -25,22 +25,10 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-    const themeScript = `
-        (() => {
-            const initialThemeCookieMatch = document.cookie.match(new RegExp('(^| )theme=([^;]+)'));
-            const initialThemeCookie = initialThemeCookieMatch && initialThemeCookieMatch.length >= 3 ? initialThemeCookieMatch[2] : null;
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const isDarkMode = initialThemeCookie === 'dark' || (!initialThemeCookie && prefersDark);
-
-            document.documentElement.classList.toggle('dark', isDarkMode);
-            document.documentElement.dataset.theme = initialThemeCookie || 'system';
-        })();
-    `;
-
     return (
         <html lang="en">
             <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name="robots" content="index, follow, max-image-preview:large" />
 
@@ -57,8 +45,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
                 <Meta />
                 <Links />
-
-                <script dangerouslySetInnerHTML={{ __html: themeScript }} />
             </head>
             <body>
                 {children}

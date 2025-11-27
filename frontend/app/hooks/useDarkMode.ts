@@ -1,17 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { setCookie } from '~/utility/cookie';
+import { getCookie, setCookie } from '~/utility/cookie';
 
 export type ThemeOption = 'light' | 'dark' | 'system';
 
 export function useDarkMode() {
-    const [theme, setTheme] = useState<ThemeOption>(() => {
-        if (typeof document === 'undefined') {
-            return 'system';
-        }
-
-        const initial = document.documentElement.dataset.theme as ThemeOption;
-        return initial ?? 'system';
-    });
+    const [theme, setTheme] = useState<ThemeOption>('system');
 
     const applyTheme = useCallback((theme: ThemeOption) => {
         const root = document.documentElement;
@@ -23,13 +16,17 @@ export function useDarkMode() {
             root.classList.toggle('dark', theme === 'dark');
         }
 
-        root.dataset.theme = theme;
         setCookie('theme', theme);
     }, []);
 
     useEffect(() => {
+        const cookieTheme = getCookie('theme') as ThemeOption;
+        if (cookieTheme) setTheme(cookieTheme);
+    }, []);
+
+    useEffect(() => {
         applyTheme(theme);
-    }, [theme]);
+    }, [theme, applyTheme]);
 
     useEffect(() => {
         if (theme !== 'system') return;
