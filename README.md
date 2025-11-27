@@ -114,7 +114,7 @@ Hot reloading is also enabled but may be unreliable due to the current Docker se
 
 Due to a severe lack of spare time, there are some minor hacks and missing pieces. Here's a list of everything I could find.
 
-- **Use SSR for language and theme handling to prevent FOUC and hydration warning in dev**
+- **Use SSR for language and theme handling to prevent FOUC**
 - Make frontend responsive and usable on smaller screens
 - Implement properly typed error handling on the frontend
 - Implement proper error pages on the frontend
