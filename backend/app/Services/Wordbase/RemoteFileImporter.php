@@ -13,7 +13,7 @@ class RemoteFileImporter extends AbstractImporter
     
     public function __construct(
         protected readonly string $url,
-        protected readonly int $batchSize = 100,
+        protected readonly int $batchSize = 1000,
     ) {}
 
 
